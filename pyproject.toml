@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentbrowse"
+version = "0.1.0"
+description = "A browser AI agents can drive, with Burp in the middle."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "playwright",
+]
+
+[project.optional-dependencies]
+stealth = ["patchright"]
+dev = ["pytest"]
+
+[project.scripts]
+agentbrowse = "agentbrowse.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
